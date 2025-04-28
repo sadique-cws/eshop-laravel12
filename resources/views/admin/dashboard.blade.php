@@ -10,11 +10,12 @@
         <div class="col-3">
             <div class="card">
                 <div class="card-body">
+                    <h1>{{ App\Models\Product::count() }}</h1>
                     <h2>Manage Products</h2>
 
                     <div class="d-flex gap-3">
-                        <a href="" class="btn btn-success">Insert</a>
-                        <a href="" class="btn btn-dark">Manage</a>
+                        <a href="{{ route("admin.insertProduct") }}" class="btn btn-success">Insert</a>
+                        <a href="{{ route("admin.manageProduct") }}" class="btn btn-dark">Manage</a>
                     </div>
                 </div>
             </div>
@@ -22,6 +23,8 @@
         <div class="col-3">
             <div class="card">
                 <div class="card-body">
+                    <h1>{{ App\Models\Category::count() }}</h1>
+
                     <h2>Manage Category</h2>
 
                     <div class="d-flex gap-3">
@@ -34,6 +37,7 @@
         <div class="col-3">
             <div class="card">
                 <div class="card-body">
+                    <h1>{{ $countUser }}</h1>
                     <h2>Manage Users</h2>
 
                     <div class="d-flex gap-3">

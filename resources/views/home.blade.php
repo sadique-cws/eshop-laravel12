@@ -4,25 +4,51 @@
 
 @section('content')
     <div class="container-fluid">
-        <img src="https://picsum.photos/1000/200" class="w-100"/>
+        <img src="{{ asset("banner.png") }}" class="w-100"/>
     </div>
 
 
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
-            @foreach ($products as $item)
+            <div class="col-3">
+                <div class="list-group">
+                    <a href="" class="list-group-item list-group-item-action active" aria-current="true">
+                        Categories
+                    </a>
+                    @foreach ($categories as $category)
+                    <a href="#" class="list-group-item list-group-item-action">
+                        {{ $category->cat_title }}
 
+                        <span class="float-end">
+                            @php
+                                $count = $category->products->count();
+                            @endphp
 
-            <div class="col-3 mb-3">
-                <div class="card">
-                    <img src="{{ $item->image }}" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <h2>{{ $item->title }}</h2>
-                    </div>
+                            @if($count > 0)
+                                <span class="badge bg-primary rounded-pill">{{ ($count > 99)?  "99+" : $count  }}</span>
+                            @endif
+                        </span>
+                    </a>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
-            {{ $products->links() }}
+            <div class="col-9">
+                <div class="row">
+                    @foreach ($products as $item)
+                    <div class="col-3 mb-3">
+                        <div class="card">
+                            <img src="{{ $item->image }}" alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h2 class="h6">{{ $item->title }}</h2>
+                                <h2><span>{{$item->discount_price}}</span><del>{{$item->price}}</del></h2>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    {{ $products->links() }}
+                </div>
+            </div>
         </div>
+
     </div>
 @endsection

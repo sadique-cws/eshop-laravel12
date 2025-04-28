@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $countUser = User::count();
+        return view('admin.dashboard', compact('countUser'));
     }
     public function manageCategory(){
         $categories = Category::orderby("id","DESC")->paginate(10);

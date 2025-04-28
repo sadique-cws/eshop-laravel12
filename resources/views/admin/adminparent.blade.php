@@ -12,7 +12,7 @@
     {{-- header --}}
     <div class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="container">
-            <a href="" class="navbar-brand">{{ env("APP_NAME") }}</a>
+            <a href="{{ route('admin.dashboard') }}" class="navbar-brand">{{ env("APP_NAME") }}</a>
 
             {{-- links --}}
             <div class="navbar-nav">
@@ -25,9 +25,9 @@
         <div class="container">
 
             <div class="navbar-nav">
-                <a href="" class="nav-item nav-link">Home</a>
-                <a href="" class="nav-item nav-link">Product</a>
-                <a href="" class="nav-item nav-link">Category</a>
+                <a href="{{ route("admin.dashboard") }}" class="nav-item nav-link">Home</a>
+                <a href="{{ route("admin.manageProduct") }}" class="nav-item nav-link">Product</a>
+                <a href="{{ route("admin.manageCategory") }}" class="nav-item nav-link">Category</a>
                 <a href="" class="nav-item nav-link">users</a>
                 <a href="" class="nav-item nav-link">Orders</a>
             </div>
